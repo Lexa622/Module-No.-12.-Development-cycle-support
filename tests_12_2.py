@@ -14,11 +14,11 @@ class TournamentTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        for i, j in cls.all_results.items():
-            exit_ = {}
-            for k, n in j.items():
-                exit_[k] = n.name
-            print(exit_)
+        for test_key, test_value in cls.all_results.items():
+            result = {}
+            for key, value in test_value.items():
+                result[key] = value.name
+            print(result)
 
     def test_race1(self):
         race1 = runner_and_tournament.Tournament(90, self.runner1, self.runner3)
@@ -37,7 +37,3 @@ class TournamentTest(unittest.TestCase):
         results = race3.start()
         self.all_results[3] = results
         self.assertTrue(results[len(results)].name == "Ник")
-
-
-if __name__ == '__main__':
-    unittest.main()
